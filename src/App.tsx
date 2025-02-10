@@ -7,7 +7,7 @@ function App() {
 
   const [imageSrc, setImageSrc] = useState('/vert.jpg');
 
-  const [timer, setTimer] = useState<NodeJS.Timeout | null>(null);
+  const [, setTimer] = useState<NodeJS.Timeout | null>(null);
 
   const generateRandomPosition = () => {
     const randomX = Math.random() * 2000 - 1000;
@@ -30,7 +30,13 @@ function App() {
       <img src={imageSrc} alt="Placeholder" />
       <h1> ?</h1>
       <div className="buttons">
-        <button>Yes</button>
+        <motion.button
+          initial={{ scale: 1 }}
+          whileHover={{ scale: 3, rotate: 360 }}
+          transition={{ type: 'spring' }}
+        >
+          Yes
+        </motion.button>
 
         <motion.button
           initial={{ x: 0, y: 0 }}
