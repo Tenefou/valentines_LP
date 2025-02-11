@@ -5,7 +5,7 @@ import { useState } from 'react';
 function App() {
   const [position, setPosition] = useState({ x: 0, y: 0 });
 
-  const [imageSrc, setImageSrc] = useState('/vert.jpg');
+  const [imageSrc, setImageSrc] = useState('/yoyo-monkey.gif');
 
   const [animation, setAnimation] = useState({ scale: 1, rotate: 0 });
 
@@ -19,11 +19,11 @@ function App() {
 
   const handleHoverStartNo = () => {
     setPosition(generateRandomPosition());
-    setImageSrc('/rouge.png');
+    setImageSrc('/Monkey_Mad.gif');
 
     const newTimer = setTimeout(() => {
-      setImageSrc('/vert.jpg');
-    }, 300);
+      setImageSrc('/yoyo-monkey.gif');
+    }, 700);
     setTimer(newTimer);
   };
 
@@ -34,12 +34,12 @@ function App() {
 
   const handleHoverEndYes = () => {
     setAnimation({ scale: 1, rotate: 0 });
-    setImageSrc('/rouge.png');
+    setImageSrc('/yoyo-monkey.gif');
   };
 
   return (
     <div className="hero">
-      <img src={imageSrc} alt="Placeholder" />
+      <img src={imageSrc} alt="Placeholder" className="responsive-image" />
       <h1> ?</h1>
       <div className="buttons">
         <motion.button
