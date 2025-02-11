@@ -7,6 +7,8 @@ function App() {
 
   const [imageSrc, setImageSrc] = useState('/vert.jpg');
 
+  const [animation, setAnimation] = useState({ scale: 1, rotate: 0 });
+
   const [, setTimer] = useState<NodeJS.Timeout | null>(null);
 
   const generateRandomPosition = () => {
@@ -15,7 +17,7 @@ function App() {
     return { x: randomX, y: randomY };
   };
 
-  const handleHoverStart = () => {
+  const handleHoverStartNo = () => {
     setPosition(generateRandomPosition());
     setImageSrc('/rouge.png');
 
@@ -25,6 +27,16 @@ function App() {
     setTimer(newTimer);
   };
 
+  const handleHoverStartYes = () => {
+    setAnimation({ scale: 3, rotate: 360 });
+    setImageSrc('/Happy.jpeg');
+  };
+
+  const handleHoverEndYes = () => {
+    setAnimation({ scale: 1, rotate: 0 });
+    setImageSrc('/rouge.png');
+  };
+
   return (
     <div className="hero">
       <img src={imageSrc} alt="Placeholder" />
@@ -32,7 +44,9 @@ function App() {
       <div className="buttons">
         <motion.button
           initial={{ scale: 1 }}
-          whileHover={{ scale: 3, rotate: 360 }}
+          animate={animation}
+          onHoverStart={handleHoverStartYes}
+          onHoverEnd={handleHoverEndYes}
           transition={{ type: 'spring' }}
         >
           Yes
@@ -41,7 +55,7 @@ function App() {
         <motion.button
           initial={{ x: 0, y: 0 }}
           animate={{ x: position.x, y: position.y }}
-          onHoverStart={handleHoverStart}
+          onHoverStart={handleHoverStartNo}
           transition={{ type: 'spring', stiffness: 300 }}
         >
           No
