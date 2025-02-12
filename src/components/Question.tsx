@@ -46,7 +46,7 @@ const Question = () => {
   return (
     <div className="hero" style={{ position: 'relative' }}>
       <img src={imageSrc} alt="Placeholder" className="responsive-image" />
-      <h1>Would you be my Valentines?</h1>
+      <h1>Would you be my Valentine?</h1>
       <div className="buttons">
         <motion.button
           initial={{ scale: 1 }}
