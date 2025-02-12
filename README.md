@@ -1,1 +1,3 @@
-A simple website to ask your girlfriend to be your Valentines (don't worry she'll say yes :)
+A simple interactive website to ask your girlfriend to be your Valentine !
+
+Made with React (Vite + TS) and Framer Motion :)
